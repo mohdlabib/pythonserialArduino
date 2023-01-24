@@ -2,6 +2,10 @@
 #include <MFRC522.h>
 
 // for arduino
+// constexpr uint8_t RST_PIN = D3;     // Configurable, see typical pin layout above
+// constexpr uint8_t SS_PIN = D4;     // Configurable, see typical pin layout above
+
+// for node
 constexpr uint8_t RST_PIN = D3;     // Configurable, see typical pin layout above
 constexpr uint8_t SS_PIN = D4;     // Configurable, see typical pin layout above
 
