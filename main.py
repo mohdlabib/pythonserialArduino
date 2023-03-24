@@ -1,38 +1,34 @@
 import re
 import pyautogui
 import serial.tools.list_ports
-from colorama import init, Fore, Style
+import serial
 
-init(autoreset=True)
-
-# Get list of available ports
 ports = serial.tools.list_ports.comports()
-portsList = [str(port) for port in ports]
+serialInst = serial.Serial()
 
-# Print out available ports in yellow
-print(Fore.YELLOW + "Available Ports:")
-for port in portsList:
-    print(port)
+portsList = []
 
-# Ask the user to select a port
-while True:
-    try:
-        val = input(Style.BRIGHT + Fore.BLUE + "Select Port: COM")
-        if not re.match("^[0-9]+$", val):
-            raise ValueError
-        val = int(val)
+for onePort in ports:
+    portsList.append(str(onePort))
+    print(str(onePort))
+
+val = input("Select Port: COM")
+
+for x in range(0,len(portsList)):
+    if portsList[x].startswith("COM" + str(val)):
         portVar = "COM" + str(val)
-        if not any(portVar in port for port in portsList):
-            raise ValueError
-        break
-    except ValueError:
-        print(Fore.RED + "Invalid input. Please enter a valid COM port number.")
+        print(portVar)
 
-# Set the selected port as the serial instance's port
-serialInst = serial.Serial(port=portVar, baudrate=9600)
+serialInst.baudrate = 9600
+serialInst.port = portVar
+
+try:
+    serialInst.close()
+except:
+    pass
+
 serialInst.open()
 
-# Main loop to read data from serial port and write to command prompt
 while True:
     data = serialInst.readline().decode().rstrip()
     match = re.match("^[0-9]*$", data)
