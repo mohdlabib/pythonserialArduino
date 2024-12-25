@@ -1,6 +1,3 @@
-### README.md
-
-```markdown
 # 🖥️ Python Serial Arduino Interface
 
 🚀 **A simple Python application to read serial data from Arduino and interact with it seamlessly.**
@@ -32,7 +29,7 @@ pyinstaller --onefile --windowed --icon=icon.ico scanner.py
 ```
 
 ## 📸 Screenshot
-![App Interface](https://via.placeholder.com/500x300?text=App+Screenshot)
+![App Interface](https://github.com/mohdlabib/pythonserialArduino/blob/main/demo.png?raw=true)
 
 ## 🖇️ Dependencies
 - `pyautogui`
@@ -48,7 +45,7 @@ pyinstaller --onefile --windowed --icon=icon.ico scanner.py
 ## 👨‍💻 Author
 **Mohd Labib**  
 🌐 [Website](https://www.labibweb.my.id)  
-📧 deb@labibweb.my.id
+📧 dev@labibweb.my.id
 
 ## 📜 License
 This project is licensed under the MIT License.  
